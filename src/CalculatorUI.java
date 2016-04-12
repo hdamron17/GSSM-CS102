@@ -1,6 +1,6 @@
 /**
  * Provides an user interface for Calculator
- * @author Hunter Damron and Dennis Perea
+ * @authors Hunter Damron and Dennis Perea
  * //CalculatorUI.java
  * //Honor Code: On our honor, we did not give or 
  * 		receive any help on this assignment
@@ -29,5 +29,6 @@ public class CalculatorUI {
 			System.out.print("Enter another expression to be solved or 'q' to quit.\n> ");
 		}
 		in.close();
+		System.out.println("Goodbye");
 	}
 }
