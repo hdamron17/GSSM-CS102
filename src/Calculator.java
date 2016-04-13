@@ -5,6 +5,8 @@
  * //Honor Code: On our honor, we did not give or 
  * 		receive any help on this assignment
  */
+
+//###### See CalculationBrainstorm.txt ########//
 import java.util.Stack;
 
 public class Calculator {
@@ -38,8 +40,9 @@ public class Calculator {
 	 * @return Returns the double value of the expression
 	 */
 	public double solve() {
-		byte priority = 0;
-		
+		//With the exception of parentheses, priority = OPS.indexOf(op) / 2;
+		//because of integer division
+		int priority = 0;
 		check();
 		
 		//TODO Solve the expression from String array
@@ -47,5 +50,16 @@ public class Calculator {
 	}
 	public String toString() {
 		return "Calculator[" + expression + " = ?]";
+	}
+	
+	private double operate(double a, double b, String op) {
+		switch(op) {
+		case "+": return a + b;
+		case "-": return a - b;
+		case "*": return a * b;
+		case "/": return a / b;
+		case "^": return Math.pow(a, b);
+		}
+		throw new NumberFormatException("Unknown operator");
 	}
 }

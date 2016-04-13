@@ -1,0 +1,93 @@
+Example input: "7 + 4 * 3 - 5"
+
+Processes
+"7 + 4 * 3 - 5"
+num: (empty)
+op: (empty)
+priority = -1 (priority starts at -1 because it must 
+		start lower than addition/subtraction
+
+"+ 4 * 3 - 5"
+num: 7
+op: (empty)
+priority: -1
+
+"4 * 3 - 5"
+
+num: 7
+op: +
+priority: 0
+
+"* 3 - 5"
+num: 7 4
+op: +
+priority = 0
+
+"3 - 5"
+num: 7 4
+op: + *
+priority = 1
+
+"- 5"
+num: 7 4 3
+op: + *
+priority = 1
+
+## peek() shows that next operator has lower priority so it pops 
+		backward until it finds an operator with priority lower than
+		the found operator (foundPriority = 0) - (aka changes priority to 
+		priority of found operator and goes backward until peek() shows 
+		operator of lower priority)
+
+"- 5"
+num: 7
+op: +
+priority = 0
+-popped off 4 and 3 from num and "*" from op, passed them to operate(), 
+		pushed answer back onto num (12); priority = 0
+
+"- 5"
+num: 7 12
+op: +
+priority = 0
+-peek() backward shows that next operator is of equal or greater priority than 
+		the found operator
+
+"- 5"
+num: (empty) - only briefly
+op: (empty)
+priority = 0
+-pops 7 and 12 from num, "+" from op, passed them to operate(),
+		pushed answer back onto num (19)
+
+"- 5"
+num: 19
+op: (empty)
+priority = 0
+-peek() backward shows that next operator (empty stack = -1) is of lower priority,
+		so it continues forward
+
+"5"
+num: 19
+op: -
+priority = 0
+
+""
+num: 19 5
+op: -
+priority = 0
+-peek() shows next operator of lower priority (emptiness = 0) so it moves backward
+
+""
+num: (empty) - only briefly
+op: (empty)
+priority = -1
+-pops off 19 and 5 from num, "-" from op, passed them to operate(),
+		pushed answer back onto num
+
+""
+num: 14
+op: (empty)
+priority = -1
+## Now finished with operation because priority = -1, array is empty, 
+		and op stack is empty (num also only has one element) ##
