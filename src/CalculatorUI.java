@@ -8,7 +8,7 @@
 import java.util.Scanner;
 
 public class CalculatorUI {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		final String HELP = "Help.", //TODO Help message (reached by typing h or help)
 				WELCOME = "Welcome.\n> "; //TODO Welcome message
 		Calculator calc;
