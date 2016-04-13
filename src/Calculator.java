@@ -12,7 +12,7 @@ import java.util.Stack;
 public class Calculator {
 	private String expression;
 	private String[] terms;
-	private Stack<Double> numTerms;
+	private Stack<Integer> numTerms;
 	private Stack<String> opTerms;
 	private final String NUMS = "0123456789";
 	private final String OPS = "+-*/^ ()";
@@ -20,7 +20,7 @@ public class Calculator {
 	public Calculator(String expression) {
 		this.expression = expression;
 		terms = expression.split(" ");
-		numTerms = new Stack<Double>();
+		numTerms = new Stack<Integer>();
 		opTerms = new Stack<String>();
 	}
 	
@@ -101,72 +101,17 @@ public class Calculator {
 	public double solve() throws Exception {
 		//With the exception of parentheses, priority = OPS.indexOf(op) / 2;
 		//because of integer division
-		int priority = -1, index = 0, foundPriority;
-		double a, b;
-		String op;
+		int priority = -1;
 		
 		String errMsg = check();
 		if(!errMsg.equals(""))
-			throw new Exception(errMsg);
+				throw new Exception(errMsg);
 		
-		while(index < terms.length && !opTerms.isEmpty()) {
-			if(index > terms.length) {
-				foundPriority = -1;
-				backward: while(priority >= foundPriority) {
-					if(opTerms.isEmpty())
-						break backward;
-					op = opTerms.peek();
-					if(priority(op) < priority)
-						break backward;
-					opTerms.pop();
-					b = numTerms.pop();
-					a = numTerms.pop();
-					numTerms.push(operate(a, b, opTerms.pop()));
-				}
-			} else if(isNumerical(terms[index])) {
-				numTerms.push(Double.parseDouble(terms[index]));
-				index++;
-			} else if (OPS.contains(terms[index])) {
-				foundPriority = priority(terms[index]);
-				if(foundPriority > priority) {
-					opTerms.push(terms[index]);
-					priority = foundPriority;
-					index++;
-				} else {
-					backward: while(priority >= foundPriority) {
-						if(opTerms.isEmpty())
-							break backward;
-						op = opTerms.peek();
-						if(priority(op) < priority)
-							break backward;
-						opTerms.pop();
-						b = numTerms.pop();
-						a = numTerms.pop();
-						numTerms.push(operate(a, b, opTerms.pop()));
-					}
-				}
-			} else 
-				throw new Exception("Illegal Character");
-		}
 		
 		
 		//TODO Solve the expression from String array
 		return 0.0;
 	}
-	
-	/**
-	 * Determines if a String is numerical
-	 * @param num Number to be tested
-	 * @return Returns true if numerical
-	 */
-	private boolean isNumerical(String num) {
-		return NUMS.contains(num.substring(0,1));
-	}
-	
-	private int priority(String op) {
-		return OPS.indexOf(op) / 2;
-	}
-	
 	public String toString() {
 		return "Calculator[" + expression + " = ?]";
 	}
