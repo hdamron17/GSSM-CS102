@@ -12,10 +12,13 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+@SuppressWarnings("serial")
+//TODO
 public class Messenger extends JFrame
 {
   private static JFrame thisWindow;
   private static Server server;
+  //TODO figure out why these are static
 
   private JTextField nameField;
   private JPasswordField passwordField;
@@ -24,7 +27,9 @@ public class Messenger extends JFrame
   /*********************      Constructor      **********************/
   /******************************************************************/
 
-  public Messenger(String title, Server server)
+@SuppressWarnings("static-access")
+//TODO
+public Messenger(String title, Server server)
   {
     super(title);
     this.server = server;
@@ -34,7 +39,8 @@ public class Messenger extends JFrame
     nameField = new JTextField(20);
 
     LoginListener loginListener = new LoginListener();
-    JLabel passwordLabel = new JLabel("Password:", JLabel.RIGHT);
+//    JLabel passwordLabel = new JLabel("Password:", JLabel.RIGHT);
+//TODO figure out why this variable is never used
     passwordField = new JPasswordField(20);
     passwordField.addActionListener(loginListener);
 
@@ -72,7 +78,7 @@ public class Messenger extends JFrame
     public void actionPerformed(ActionEvent e)
     {
       String name = nameField.getText().trim().toLowerCase();
-      String password = passwordField.getText().trim().toLowerCase();
+      String password = String.valueOf(passwordField.getPassword()).trim().toLowerCase();
       tryLogin(name, password);
       nameField.setText("");
       passwordField.setText("");
@@ -139,8 +145,8 @@ public class Messenger extends JFrame
         return true;  // User pressed "Cancel"
 
       String name = regNameField.getText().trim().toLowerCase();
-      String password = regPasswordField.getText().trim().toLowerCase();
-      String password2 = regPasswordField2.getText().trim().toLowerCase();
+      String password = String.valueOf(regPasswordField.getPassword()).trim().toLowerCase();
+      String password2 = String.valueOf(regPasswordField2.getPassword()).trim().toLowerCase();
 
       String errorMsg = "";
       int result = password.compareTo(password2);
@@ -200,6 +206,6 @@ public class Messenger extends JFrame
     window.addWindowListener(new WindowAdapter()
       { public void windowClosing(WindowEvent e) { System.exit(0); }});
     window.setBounds(0, 0, 360, 140);
-    window.show();
+    window.setVisible(true);
   }
 }

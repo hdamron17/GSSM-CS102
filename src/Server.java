@@ -8,7 +8,10 @@ public class Server
  CONSTRUCTOR:
   Initializes the map of registered users and the set of logged-in users to be empty 
 */
-    public Server() { }
+    public Server() {
+    	
+    	//TODO
+    }
    
 //  METHODS:
 
@@ -20,7 +23,11 @@ public class Server
  	-2   invalid password, must be from 2 to 10 characters in length
        	-3   the screen name is already taken
 */
-    public int addUser(String name, String password) { }
+    public int addUser(String name, String password) {
+    	
+    	//TODO
+    	return 0;
+    }
     
 
 /**
@@ -36,11 +43,18 @@ public class Server
 	  logged-in users to it as a “buddy list.” It then adds the new user to the set of 
 	  logged-in users.
 */
-    public int login(String name, String password){  }
+    public int login(String name, String password){
+    	
+    	//TODO
+    	return 0;
+    }
     
 /**
   Removes a given user from the set of logged-in users and from the ‘buddy lists’ of 
    all other logged-in users.  
 */
-    public void logout(MsgUser u){  }
+    public void logout(MsgUser u){
+    	
+    	//TODO
+    }
 }
