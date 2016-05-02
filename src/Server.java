@@ -1,18 +1,22 @@
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 /**
   fill in the comment section
 */
 
 public class Server
 {
-	
+	private TreeMap<String, MsgUser> users;
+	private TreeSet<MsgUser> loggedIn;
 	
 /**
  CONSTRUCTOR:
   Initializes the map of registered users and the set of logged-in users to be empty 
 */
     public Server() {
-    	
-    	//TODO
+    	users = new TreeMap<String, MsgUser>();
+    	loggedIn = new TreeSet<MsgUser>();
     }
    
 //  METHODS:
@@ -26,8 +30,13 @@ public class Server
        	-3   the screen name is already taken
 */
     public int addUser(String name, String password) {
-    	
-    	//TODO
+    	if(name.length() < 4 || name.length() > 10)
+    		return -1;
+    	if(password.length() < 2 || password.length() > 10)
+    		return -2;
+    	if(users.containsKey(name))
+    		return -3;
+    	users.put(name, new MsgUser(this, name, password));
     	return 0;
     }
     
@@ -45,18 +54,31 @@ public class Server
 	  logged-in users to it as a “buddy list.” It then adds the new user to the set of 
 	  logged-in users.
 */
-    public int login(String name, String password){
-    	
-    	//TODO
+    public int login(String name, String password) {
+    	if(!users.containsKey(name))
+    		return -1;
+    	MsgUser attempt = users.get(name);
+    	if(!password.equals(attempt.getPassword()))
+    		return -2;
+    	if(loggedIn.contains(attempt))
+    		return -3;
+    	loggedIn.add(attempt);
+    	for(MsgUser entry : loggedIn) {
+    		entry.addBuddy(attempt);
+    	}
+    	attempt.openDialog(loggedIn);
     	return 0;
     }
     
 /**
   Removes a given user from the set of logged-in users and from the ‘buddy lists’ of 
-   all other logged-in users.  
+   all other logged-in users.
 */
-    public void logout(MsgUser u){
-    	
-    	//TODO
+    public void logout(MsgUser u) {
+    	loggedIn.remove(u);
+    	u.quit();
+    	for(MsgUser entry : loggedIn) {
+    		entry.removeBuddy(u);
+    	}
     }
 }
