@@ -3,9 +3,12 @@ import java.util.Set;
 /**
  * fill in the comment block - author, etc.
  */
-public class MsgUser implements Comparable<MsgUser>
-{
-     
+public class MsgUser implements Comparable<MsgUser> {
+	private String name;
+	private Server server;
+	
+	private MsgWindow dialog;
+	
 /**
 	CONSTRUCTOR: saves a reference to the server and initializes this user’s 
                                 screen name and password
@@ -65,8 +68,7 @@ public class MsgUser implements Comparable<MsgUser>
    	Saves a reference to the new dialog window in the myWindow field. 
 */    
     public void openDialog(Set<MsgUser> buddies) {
-    	
-    	//TODO
+    	dialog = new MsgWindow(this, buddies);
     } 
 
 /**
