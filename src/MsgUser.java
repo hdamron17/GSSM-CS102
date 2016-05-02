@@ -5,17 +5,19 @@ import java.util.Set;
  */
 public class MsgUser implements Comparable<MsgUser> {
 	private String name;
+	private String password;
 	private Server server;
 	
-	private MsgWindow dialog;
+	private MsgWindow myWindow;
 	
 /**
 	CONSTRUCTOR: saves a reference to the server and initializes this user’s 
                                 screen name and password
 */
     public MsgUser(Server server, String name, String password) {
-    	
-    	//TODO
+    	this.server = server;
+    	this.name = name;
+    	this.password = name;
     }
 
 // METHODS:
@@ -24,27 +26,23 @@ public class MsgUser implements Comparable<MsgUser> {
  	returns this user’s screen name
 */
     public String toString() {
-    	
-    	//TODO
-    	return "";
+    	return name;
     }
    
 /**
 	 returns this user’s password
 */
     public String getPassword() {
-    	
-    	//TODO
-    	return "";
+    	return password;
     }
    
 /**
  returns true if this user’s name is equal to other’s (case insensitive), false otherwise
 */
     public boolean equals (MsgUser other) {
-    	
-    	//TODO
-    	return false;
+    	if(this.name.equalsIgnoreCase(other.name))
+    		return true;
+    	else return false;
     }
  
 /**
@@ -53,9 +51,7 @@ public class MsgUser implements Comparable<MsgUser> {
   	an Object type 
 */   
     public int compareTo(MsgUser other) {
-    	
-    	//TODO
-    	return 0;
+    	return this.name.compareToIgnoreCase(other.name);
     } 
    
 /**
@@ -68,7 +64,7 @@ public class MsgUser implements Comparable<MsgUser> {
    	Saves a reference to the new dialog window in the myWindow field. 
 */    
     public void openDialog(Set<MsgUser> buddies) {
-    	dialog = new MsgWindow(this, buddies);
+    	myWindow = new MsgWindow(this, buddies);
     } 
 
 /**
@@ -76,8 +72,8 @@ public class MsgUser implements Comparable<MsgUser> {
 	   calling myWindow.addBuddy(u);
 */
     public void addBuddy(MsgUser u) {
-    	
-    	//TODO
+    	if(myWindow != null)
+    		myWindow.addBuddy(u);
     }
  
 /**
@@ -85,24 +81,24 @@ public class MsgUser implements Comparable<MsgUser> {
 	 myWindow.removeBuddy(u)
 */
     public void removeBuddy(MsgUser u) {
-    	
-    	//TODO
+    	if(myWindow != null)
+    		myWindow.removeBuddy(u);
     }
 
 /**
  	if myWindow is initialized, shows text by calling myWindow.showMessage(text)
 */
     public void receiveMessage(String text) {
-    	
-    	//TODO
+    	if(myWindow != null)
+    		myWindow.showMessage(text);
     }
    
 /**
- 	Disposes of this user’s dialog window. Logs out this user by calling server’s logout method. 
+ 	Disposes of this user’s dialog window. Logs out this user by calling server’s logout method.
  		(This method is called from the MsgWindow class when the ‘close’ button is clicked on the dialog window.) 
 */  
     public void quit() {
-    	
-    	//TODO
+    	myWindow.dispose();
+    	server.logout(this);
     }
 }
