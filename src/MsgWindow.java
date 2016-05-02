@@ -3,18 +3,16 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.Set;
 
-@SuppressWarnings("serial")
-//TODO
 public class MsgWindow extends JFrame
     implements KeyListener
 {
   private static final String PROMPT = ">> ";
 
   private MsgUser myUser;
-  private JComboBox<MsgUser> buddiesList;
+  private JComboBox buddiesList;
   private JTextArea textArea;
   
-  public MsgWindow (MsgUser u, Set<MsgUser> buddies)
+  public MsgWindow (MsgUser u, Set buddies)
   {
     super(u.toString());
 
@@ -23,8 +21,8 @@ public class MsgWindow extends JFrame
 
     myUser = u;
 
-    MsgUser buddiesArray[] = (MsgUser[]) buddies.toArray();
-    buddiesList = new JComboBox<MsgUser>(buddiesArray);
+    Object buddiesArray[] = buddies.toArray();
+    buddiesList = new JComboBox(buddiesArray);
 
     JPanel talkTo = new JPanel(new FlowLayout(FlowLayout.RIGHT));
     talkTo.add(new JLabel("Talk to:", JLabel.RIGHT));

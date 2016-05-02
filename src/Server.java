@@ -38,6 +38,7 @@ public class Server
     		return -3;
     	users.put(name, new MsgUser(this, name, password));
     	return 0;
+    	
     }
     
 
@@ -76,7 +77,6 @@ public class Server
 */
     public void logout(MsgUser u) {
     	loggedIn.remove(u);
-    	u.quit();
     	for(MsgUser entry : loggedIn) {
     		entry.removeBuddy(u);
     	}

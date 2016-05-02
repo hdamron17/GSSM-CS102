@@ -12,13 +12,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-@SuppressWarnings("serial")
-//TODO
 public class Messenger extends JFrame
 {
   private static JFrame thisWindow;
   private static Server server;
-  //TODO figure out why these are static
 
   private JTextField nameField;
   private JPasswordField passwordField;
@@ -27,9 +24,7 @@ public class Messenger extends JFrame
   /*********************      Constructor      **********************/
   /******************************************************************/
 
-@SuppressWarnings("static-access")
-//TODO
-public Messenger(String title, Server server)
+  public Messenger(String title, Server server)
   {
     super(title);
     this.server = server;
@@ -39,8 +34,7 @@ public Messenger(String title, Server server)
     nameField = new JTextField(20);
 
     LoginListener loginListener = new LoginListener();
-//    JLabel passwordLabel = new JLabel("Password:", JLabel.RIGHT);
-//TODO figure out why this variable is never used
+    JLabel passwordLabel = new JLabel("Password:", JLabel.RIGHT);
     passwordField = new JPasswordField(20);
     passwordField.addActionListener(loginListener);
 

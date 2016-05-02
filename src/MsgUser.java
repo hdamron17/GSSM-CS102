@@ -17,7 +17,7 @@ public class MsgUser implements Comparable<MsgUser> {
     public MsgUser(Server server, String name, String password) {
     	this.server = server;
     	this.name = name;
-    	this.password = name;
+    	this.password = password;
     }
 
 // METHODS:
