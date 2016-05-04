@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @authors Hunter Damron and Dennis Perea
+ * //Server.java
+ * //Honor Code: I did not lie, cheat, or steal
+ */
 import java.util.TreeMap;
 import java.util.TreeSet;
 

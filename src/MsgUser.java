@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @authors Hunter Damron and Dennis Perea
+ * //MsgUser.java
+ * //Honor Code: I did not lie, cheat, or steal
+ */
 import java.util.Set;
 
 /**

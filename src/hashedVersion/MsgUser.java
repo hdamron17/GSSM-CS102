@@ -1,3 +1,9 @@
+/**
+ * 
+ * @authors Hunter Damron and Dennis Perea
+ * //hashedVersion/MsgUser.java
+ * //Honor Code: I did not lie, cheat, or steal
+ */
 package hashedVersion;
 import java.util.Set;
 
