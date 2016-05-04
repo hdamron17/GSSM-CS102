@@ -1,3 +1,4 @@
+
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -63,10 +64,10 @@ public class Server
     		return -2;
     	if(loggedIn.contains(attempt))
     		return -3;
-    	loggedIn.add(attempt);
     	for(MsgUser entry : loggedIn) {
     		entry.addBuddy(attempt);
     	}
+    	loggedIn.add(attempt);
     	attempt.openDialog(loggedIn);
     	return 0;
     }

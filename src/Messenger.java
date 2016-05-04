@@ -1,12 +1,4 @@
-/**
- * @(#)Messenger.java
- *
- * Messenger application
- *
- * @the Litvin Textbook
- * @version 1.00 2007/4/3
- */
- 
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -16,7 +8,6 @@ public class Messenger extends JFrame
 {
   private static JFrame thisWindow;
   private static Server server;
-
   private JTextField nameField;
   private JPasswordField passwordField;
 
