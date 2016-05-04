@@ -69,8 +69,8 @@ public class MsgWindow extends JFrame
   private void sendMessage(String text)
   {
     MsgUser u = (MsgUser)buddiesList.getSelectedItem();
-    u.receiveMessage("[" + myUser.toString() + "] " + text);
     textArea.append(PROMPT);
+    u.receiveMessage("[" + myUser.toString() + "] " + text);
   }
 
   /**
@@ -84,9 +84,11 @@ public class MsgWindow extends JFrame
     switch(code)
     {
       case KeyEvent.VK_ENTER:
-        msg= textArea.getText();
+        msg = textArea.getText();
         int tail = msg.lastIndexOf(PROMPT) + PROMPT.length();
         msg = msg.substring(tail).trim();
+        if(msg.length() > 4200)
+        	msg = "Message failed to send because I can only count to 4200 :(";
         if (msg.length() > 0)
           sendMessage(msg);
         break;
