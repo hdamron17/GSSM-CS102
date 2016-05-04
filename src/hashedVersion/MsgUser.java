@@ -1,5 +1,7 @@
 /**
- * 
+ * Msg User is a class that stores the 
+ * 		username, password, and server its on.
+ * 		Also Implements hashCode() for use in HashSet
  * @authors Hunter Damron and Dennis Perea
  * //hashedVersion/MsgUser.java
  * //Honor Code: I did not lie, cheat, or steal

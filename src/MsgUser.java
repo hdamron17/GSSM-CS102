@@ -1,13 +1,12 @@
-/**
- * 
- * @authors Hunter Damron and Dennis Perea
- * //MsgUser.java
- * //Honor Code: I did not lie, cheat, or steal
- */
 import java.util.Set;
 
 /**
- * fill in the comment block - author, etc.
+ * Msg User is a class that stores the 
+ * 		username, password, and server its on.
+ * Users are able to message eachothers 
+ * @authors Hunter Damron and Dennis Perea
+ * //MsgUser.java
+ * //Honor Code: I did not lie, cheat, or steal
  */
 public class MsgUser implements Comparable<MsgUser> {
 	private String name;
@@ -78,6 +77,7 @@ public class MsgUser implements Comparable<MsgUser> {
 	   calling myWindow.addBuddy(u);
 */
     public void addBuddy(MsgUser u) {
+    	//addBuddy() refers to the addBuddy method in MsgWindow
     	if(myWindow != null)
     		myWindow.addBuddy(u);
     }
@@ -87,6 +87,7 @@ public class MsgUser implements Comparable<MsgUser> {
 	 myWindow.removeBuddy(u)
 */
     public void removeBuddy(MsgUser u) {
+    	//removeBuddy() refers to the removeBuddy method in MsgWindow
     	if(myWindow != null)
     		myWindow.removeBuddy(u);
     }
@@ -104,7 +105,9 @@ public class MsgUser implements Comparable<MsgUser> {
  		(This method is called from the MsgWindow class when the ‘close’ button is clicked on the dialog window.) 
 */  
     public void quit() {
+    	// dispose() closese the window
     	myWindow.dispose();
+    	//LogOut removes the user from the active list
     	server.logout(this);
     }
 }
