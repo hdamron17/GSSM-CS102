@@ -1,5 +1,6 @@
 /**
- * 
+ * Manages registered and logged in MsgUsers 
+ * 		using HashSets and HashMaps
  * @authors Hunter Damron and Dennis Perea
  * //hashedVersion/Server.java
  * //Honor Code: I did not lie, cheat, or steal

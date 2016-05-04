@@ -1,5 +1,5 @@
 /**
- * 
+ * Server manages registered MsgUsers and logged in MsgUsers
  * @authors Hunter Damron and Dennis Perea
  * //Server.java
  * //Honor Code: I did not lie, cheat, or steal
