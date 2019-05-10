@@ -1,0 +1,41 @@
+Case Study and Lab: Java Messenger from Java Methods AB  refer to the Litvin and Litvin book, page 136 – 139
+
+Read the lab description in the textbook (copies are available in C111).  You will be writing the code for two 
+classes, the Server and the MsgUser class.  The Litvin book was written before template classes were implemented 
+in Java.  You can take advantage of the fact that your Sets and Maps can specify the data types to be use for 
+Elements, Keys, and Values.  By doing this, you will reduce the amount of casting necessary in the code. 
+
+In addition, we can take advantage of the fact that the Comparable interface is also a template structure in Java 
+7, so implement Comparable<dataType>  as well.
+
+I have included the class descriptions for the Server class and the MsgUser class here, but you must read the book 
+to make a good decision about the data structures you use for instance variables.
+
+Download these files:  Messenger.javaView in a new window,  MessageWindow.javaView in a new window,  Server.javaView 
+in a new window,   MsgUser.javaView in a new window    
+
+or download  Skeleton for Messenger Lab.zipView in a new window the zipped folder containing all four files.
+
+Complete the messenger system.  Write the code for the Server and the MsgUser classes.  Write a TEST PLAN to test 
+the code to determine that it is was working:
+
+Examples:
+
+To test the registration of users:
+
+Registered user bobby with password work – successful addition
+
+Registered user mary with password m – failed - password length not correct 
+
+Registered user  MickeyMouse with password club – failed - password length not correct
+
+Also test the messaging between registered users in the same manner.
+
+Upload the .java files which you have modified, the test plan and resulting output, and copy all of the changed 
+code into the Word document.
+
+If you work on this lab with a partner, both of you must fill and an upload the Team Member FormPreview the 
+documentView in a new window, one filled out by each member.
+
+Extra credit (5 points): you can earn extra credit by turning in a second version of the files, changing the 
+data structures used in the lab to be hashed structures rather than trees.
